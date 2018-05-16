@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sample">
+
+
+        <label>Email</label> <br>
+        <input type="text" v-model="email"><br>
+        <label>First Name</label><br>
+        <input type="text" v-model="firstName"><br>
+        <label>Last Name</label><br>
+        <input type="text" v-model="lastName"><br>
+        <label>Phone</label><br>
+        <input type="text" v-model="phone">
+
+
+<div>
+    Guests <button @click="addNewGuest">+</button>
+
+</div>
+        <div v-for="(guest,  index) in guests" >
+            <label @dblclick="removeGuest(index)">Guest {{index}}</label> <br>
+            <input type="text" v-model="email"><br>
+        </div>
+
+        <hr>
+        <button @click="">Send Data</button>
+
+
+
+        <!--<button class="btn btn-success"-->
+                <!--@click="addGuest">-->
+            <!--+-->
+        <!--</button>-->
+
+
+        <!--<button class="btn btn-primary"-->
+                <!--@click="sortNumbers">-->
+            <!--Sort-->
+        <!--</button>-->
+        <!--<ul>-->
+            <!--<li v-for="(number, index) in numbers"-->
+                <!--@mouseenter="onMouseEnter($event, index)"-->
+                <!--@mouseleave="onMouseLeave($event, index)"-->
+                    <!-->-->
+                <!--{{ index }} - {{ number }}-->
+            <!--</li>-->
+        <!--</ul>-->
+        <!--<hr>-->
+        <!--<table class="table table-bordered">-->
+            <!--<tr v-for="(value, key, i) in info">-->
+                <!--<td>{{ i }}</td>-->
+                <!--<td>{{ key }}</td>-->
+                <!--<td>{{ value }}</td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    </div>
+</div>
+<script>
+    let sample = new Vue({
+        el: '.sample',
+        data: {
+            email: '',
+            firstName:'',
+            lastName:'',
+            phone:'',
+            guests:[]
+        },
+        methods:{
+            addNewGuest(){
+        this.guests.push("");
+    },
+    removeGuest(index){
+        console.log('removeGuest index=', index);
+        this.guests.splice(index,1);
+    }
+
+        }
+//        methods: {
+//            addNumber(){
+//        this.numbers.push(Math.floor(Math.random() * 10));
+//    },
+//    sortNumbers(){
+//        this.numbers.sort((a, b) => {
+//            return a > b ? 1 : -1;
+//    });
+//    },
+//    onMouseEnter(e, index){
+//        if(index & 1){
+//            e.target.style.color = 'red'
+//        }
+//    },
+//    onMouseLeave(e, index){
+//        if(index & 1){
+//            e.target.style.color = 'black'
+//        }
+//    }
+//    }
+    });
+</script>
+</body>
+</html>
